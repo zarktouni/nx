@@ -1,0 +1,25 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2022",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@poc-nx/counter-data": ["libs/shared-data/src/index.ts"],
+      "@poc-nx/decrement-button": ["libs/decrement-button/src/index.ts"],
+      "@poc-nx/increment-button": ["libs/increment-button/src/index.ts"],
+      "@poc-nx/reset-button": ["libs/reset-button/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

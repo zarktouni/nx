@@ -1,28 +1,28 @@
 {
-  "name": "poc-nx",
-  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "name": "shell",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "./src",
+  "sourceRoot": "shell/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/poc-nx",
-        "index": "./src/index.html",
-        "browser": "./src/main.ts",
+        "outputPath": "dist/shell",
+        "index": "shell/src/index.html",
+        "browser": "shell/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "tsconfig.app.json",
+        "tsConfig": "shell/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           {
             "glob": "**/*",
-            "input": "public"
+            "input": "shell/public"
           }
         ],
-        "styles": ["./src/styles.scss"],
+        "styles": ["shell/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -53,10 +53,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "poc-nx:build:production"
+          "buildTarget": "shell:build:production"
         },
         "development": {
-          "buildTarget": "poc-nx:build:development"
+          "buildTarget": "shell:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -64,20 +64,17 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "poc-nx:build"
+        "buildTarget": "shell:build"
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": ["./src"]
-      }
+      "executor": "@nx/eslint:lint"
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectName}"],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "jest.config.app.ts"
+        "jestConfig": "shell/jest.config.ts"
       }
     }
   }
